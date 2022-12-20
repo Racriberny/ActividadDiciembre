@@ -15,7 +15,12 @@ public class Hilo implements Runnable{
     public void run() {
         for (int i = 0; i <100 ; i++) {
             tareaLarga();
-            textView.setText(String.valueOf(i));
+            textView.post(new Runnable() {
+                @Override
+                public void run() {
+                    textView.setText("a");
+                }
+            });
             progressBar.incrementProgressBy(1);
         }
     }
